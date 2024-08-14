@@ -17,7 +17,7 @@ const userApi = (token) => {
                     })
                     setIsLogged(true);
                     console.log(res.data);
-                    if(res.data.user.role === 1) {
+                    if(res.data.user.role === "admin") {
                         setIsAdmin(true);
                     }
                 } catch (error) {

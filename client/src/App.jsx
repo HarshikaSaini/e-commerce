@@ -9,7 +9,7 @@ const App = () => {
   return (
     <DataProvider>
     <Router>
-      <div className="w-[70%] border  rounded-lg m-auto flex flex-col">
+      <div className="w-full  flex flex-col">
         <Header />
         <Main />
       </div>

@@ -1,11 +1,10 @@
 const users = require("../models/userModel");
-const  authAdmin = async(req,res,next)=>{
+const  authAdmin = async (req,res,next) => {
     try {
-        const user = await users.findOne({
-            _id: req.user.id
-        })
-
-        if(user.role === 0) {
+        const user = await users.findById(req.user.id);
+        
+        if(!user) return res.status(400).send("no user exist")
+        if(user.role !== "admin") {
             return res.status(400).json({msg:"Admin access denied"});
         }
         

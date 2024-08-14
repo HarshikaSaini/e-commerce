@@ -1,11 +1,8 @@
 const mongoose = require("mongoose");
 const product = new mongoose.Schema({
-
-   product_id:{
-        type:String,
-        required:true,
-        trim:true,
-        unique:true
+    _id:{
+      type: mongoose.Schema.Types.ObjectId,
+      default: mongoose.Types.ObjectId
     },
     title:{
         type:String,
@@ -25,10 +22,12 @@ const product = new mongoose.Schema({
       type:  Number,
       required:true
     },
-    tags:{
-        type: [String],
-        required:true
-    },
+    tags:[
+        {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"tags"
+       }
+    ],
     desc:{
         type:String,
         required:true,
@@ -38,11 +37,9 @@ const product = new mongoose.Schema({
         type:String,
         required:true
     },
-    size:{
-        type:[String]
-    },
     category:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
+        re:"Categories",
         required:true,
     },
     sold:{
@@ -52,26 +49,26 @@ const product = new mongoose.Schema({
     images:{
         type:Object,
         required:true
-    },
-    reviews:{
-        type:[
-         {
-            ratings:{
-                type:Number,
-                required:true
-            },
-            
-            date:{
-                type:Date,
-                default:Date.now
-            },
-            reviewerName:{
-                type:String,
-                required:true
-            }
-         }
-        ]
     }
+    // reviews:{
+    //     type:[
+    //      {
+    //         ratings:{
+    //             type:Number,
+    //             required:true
+    //         },
+            
+    //         date:{
+    //             type:Date,
+    //             default:Date.now
+    //         },
+    //         reviewerName:{
+    //             type:String,
+    //             required:true
+    //         }
+    //      }
+    //     ]
+    // }
     
 
 },{

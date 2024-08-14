@@ -43,6 +43,7 @@ const LoginPage = () => {
       <Input 
       className=" border-b-2 border-gray-300 focus:border-blue-500 outline-none px-1 rounded-none py-1 "
       placeholder="Enter your password"
+      type="password"
       label="Password" {...register("password", {
        required:"Enter your password !"
       })}

@@ -1,35 +1,43 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose")
+
 const userRouter = require("./routes/userRoute")
 const categoryRouter = require("./routes/categoryRoute")
 const productRouter = require("./routes/productRouter")
+const tagRouter = require("./routes/tagRoute")
+
+
+
 const cookieParser = require("cookie-parser")
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 const corsOptions = {
   origin:["http://localhost:5173"],
   credentials:true
 };
 
-require("dotenv").config();
+
 
 
 const app = express();
-const port = process.env.PORT || 5000;
-
+const port = process.env.PORT;
 app.use(express.json()); // For parsing application/json
 app.use(cookieParser()); // use cookies-parser before router , parsed cookies are attached 
 // to client request object.By moving this before the router, all routes will have access to parsed cookies.
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));// enable cors for all origins
+app.use(fileUpload({
+  useTempFiles:true
+}));
 
-app.use('/user' , userRouter)
+
+app.use('/user', userRouter)
 app.use('/api' , categoryRouter)
-app.use("/api" , productRouter)
+app.use('/api' , productRouter)
+app.use('/api' , tagRouter)
 
-app.get("/", (req, res) => {
-  res.json({
-    mess: "hi this is response",
-  });
-});
+
 
 app.listen(port, () => console.log("Server Running..."));
 

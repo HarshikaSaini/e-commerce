@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
 const product = new mongoose.Schema({
-    _id:{
-      type: mongoose.Schema.Types.ObjectId,
-      default: mongoose.Types.ObjectId
-    },
     title:{
         type:String,
         required:true,
@@ -39,17 +35,27 @@ const product = new mongoose.Schema({
     },
     category:{
         type:mongoose.Schema.Types.ObjectId,
-        re:"Categories",
-        required:true,
+        ref:"Categories",
+        required:true
     },
     sold:{
         type:Number,
         default:0
     },
-    images:{
-        type:Object,
+    images:[{
+       url:{
+        type:String,
         required:true
-    }
+      },
+      public_id:{
+        type:String,
+        required:true
+      },
+      original_filename:{
+        type:String,
+        required:true
+      }
+    }],
     // reviews:{
     //     type:[
     //      {

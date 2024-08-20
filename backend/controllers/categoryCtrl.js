@@ -28,8 +28,8 @@ const categoriesCtrl = {
 
   deleteCategory: async (req,res)=>{
     try {
-      
-        await Categories.findByIdAndDelete(req.params.id);
+        const {name} = req.body
+        await Categories.findOne({name})
         res.json({msg:"deleted a category"});
         
      
@@ -42,7 +42,7 @@ const categoriesCtrl = {
   updateCategory: async (req, res)=>{
     try {
         const {name} = req.body
-        await Categories.findByIdAndUpdate({_id:req.params.id}, {name})
+        await Categories.findOne({name})
         res.json({msg:"updated the category"})
     } catch (error) {
         return res.status(500).json({ msg: error.message });

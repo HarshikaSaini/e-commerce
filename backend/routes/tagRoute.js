@@ -4,9 +4,9 @@ const tagController = require("../controllers/tagCtrl");
 router.route("/tag")
 .get(tagController.getTags)
 
-router.route("/products/:id/tags")
-.post(tagController.createProductTag)
-.delete(tagController.deleteProductTag)
+// router.route("/products/tags:id")   //it is product id 
+// .post(tagController.createProductTag)
+// .delete(tagController.deleteProductTag)
 
 
 module.exports = router

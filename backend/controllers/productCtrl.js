@@ -1,6 +1,8 @@
-const { default: mongoose } = require("mongoose");
+const  mongoose  = require("mongoose");
 const Products = require("../models/productModel");
-
+const cloudinary = require ("../utils/cloudinary")
+const Category = require("../models/categoryModel")
+const Tags = require("../models/tagModel");
 // class APIfeatures {
 //     constructor(query,queryString){
 //      this.query=query,
@@ -12,7 +14,6 @@ const Products = require("../models/productModel");
 
 //     pagination(){}
 // }
-
 
 const productCtrl = {
   getProducts: async (req, res) => {
@@ -27,7 +28,6 @@ const productCtrl = {
   createProducts: async (req, res) => {
     try {
       const {
-        _id,
         title,
         price,
         discountPer,
@@ -37,36 +37,60 @@ const productCtrl = {
         brand,
         sold,
         category,
-        images,
       } = req.body;
+      
 
-      const existingProduct = await Products.findOne({ _id });
-      if (existingProduct) {
-        return res
-          .status(500)
-          .json({ msg: `Product with id ${product_id} already exists` });
+      let parsedTags = [];
+      if(tags){
+        parsedTags = JSON.parse(tags)
       }
 
-      const image = req.files.images;
-      cloudinary.uploader.upload(image.tempFilePath, (err, result) => {
+
+      let tagIDs = [];
+      if(parsedTags && Array.isArray(parsedTags)){
+        tagIDs = await Promise.all(parsedTags.map(async (tagName)=>{
+          let existingTag = await Tags.findOne({name:tagName.toLowerCase()});
+          if(existingTag) return existingTag._id;
+          const newTag = new Tags({name:tagName.toLowerCase()});
+          const savedTag = await newTag.save();
+          return savedTag._id;
+        }))
+      }
+
+
+
+      const categoryName = await  Category.findOne({name:category});
+      // console.log(categoryName._id)
+      if(!categoryName._id) return res.status(400).send("no category found")
+    
+      const imageFiles = req.files.images;// getting image array
+      const imagePromise = imageFiles.map(image => 
+        cloudinary.uploader.upload(image.tempFilePath));// mapping all images to upload
+
+      const uploadResult = await Promise.all(imagePromise); // wait till all images are uploaded
+      
+      const images = uploadResult.map(result => ({
+        url:result.secure_url,
+        public_id:result.public_id,
+        original_filename: result.original_filename
+      }));
+
       const newProduct = new Products({
-        
         title: title.toLowerCase(),
         price,
         discountPer,
         ratings,
-        tags,
+        tags:tagIDs,
         desc,
         brand,
         sold,
-        category,
-        images: result.url,
-      })
-      newProduct.save();
-      res.status(200).json({ msg: "product created", newProduct });
+        category : categoryName._id,
+        images,
       });
+      await newProduct.save();
+      res.status(200).json({ msg: "product created", newProduct });
     } catch (error) {
-      return res.status(500).json({ msg: error.message });
+      return res.status(500).json({ msg:error.message });
     }
   },
 

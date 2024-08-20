@@ -7,7 +7,7 @@ const Product = () => {
 const state = useContext(GlobalState);
 const isadmin = state.userApi.isadmin[0];
 const productsList = state.productApi.products[0];
-// console.log(productsList)
+console.log(productsList)
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3 p-3'>

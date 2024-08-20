@@ -9,7 +9,7 @@ const ProductList = ({ item ,isadmin }) => {
         <div className="w-full h-[60%]">
           <img
             className="w-full h-full"
-            src={item.pic}
+            src={item.images.url}
             alt="pic"
           />
         </div>

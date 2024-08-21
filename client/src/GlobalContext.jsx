@@ -45,7 +45,7 @@ export const DataProvider = ({ children }) => {
     tagApi : tagApi()
   };
 
-  console.log("global state", state);
+  
 
   return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;
 };

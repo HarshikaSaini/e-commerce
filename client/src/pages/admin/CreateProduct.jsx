@@ -68,6 +68,7 @@ const CreateProduct = () => {
   }
 
   const formSubmit = async (data) => {
+    
     const formData = new FormData();
     for (const key in data) {
       if(key === 'tags' && Array.isArray(data[key])){
@@ -83,9 +84,10 @@ const CreateProduct = () => {
     });
 
 
-  formData.forEach((value , key) => {
+    formData.forEach((value , key) => {
     console.log(key , value)
-  })
+    })
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/products",

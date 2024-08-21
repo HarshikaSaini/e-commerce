@@ -6,7 +6,7 @@ const userApi = (token) => {
     const [isLogged , setIsLogged] = useState(false);
     const [isadmin , setIsAdmin] = useState(false);
     const [cart , setCart] = useState([])
-     
+    const [userData , setUserData] = useState([])
 
     useEffect(()=>{
         if(token){
@@ -16,7 +16,8 @@ const userApi = (token) => {
                         headers:{Authorization:token}
                     })
                     setIsLogged(true);
-                    console.log(res.data);
+                   
+                   setUserData(res.data)
                     if(res.data.role === "admin") {
                         setIsAdmin(true);
                     }
@@ -47,6 +48,7 @@ const userApi = (token) => {
   return {
     isLogged: [isLogged , setIsLogged],
     isadmin : [isadmin , setIsAdmin],
+    userData:userData,
     addCart:addCart,
     cart:[cart,setCart]
 

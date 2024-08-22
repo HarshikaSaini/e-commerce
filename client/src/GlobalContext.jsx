@@ -11,6 +11,13 @@ export const GlobalState = createContext();
 
 export const DataProvider = ({ children }) => {
   const [token, setToken] = useState(false);
+  const [showSidebar , setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+
+    setShowSidebar(!showSidebar)
+    console.log(showSidebar)
+  }
   const brands = ["Zara","H&M","Forever 21","Anthropologie","Banana Republic","Topshop","Levi’s","Ralph Lauren",
     "Tommy Hilfiger",
     "Hugo Boss",
@@ -42,7 +49,9 @@ export const DataProvider = ({ children }) => {
     userApi: userApi(token),
     categoryApi: categoryApi(),
     brands:brands,
-    tagApi : tagApi()
+    tagApi : tagApi(),
+    showSidebar:showSidebar,
+    toggleSidebar:toggleSidebar
   };
 
   

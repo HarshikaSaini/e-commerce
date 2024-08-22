@@ -13,21 +13,25 @@ const ButtonRender = ({item}) => {
 
   return (
     <div>{isadmin  ? (
-        <div className="flex justify-between items-center">
-          <button className="border px-5 py-2 bg-blue-900 hover:bg-blue-700 text-white rounded-xl">
-            <Link to="#">Delete</Link>
+        <div className="flex justify-end items-center gap-x-2">
+          <button className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5    bg-blue-700 hover:bg-blue-600 text-white rounded-md">
+           Delete
           </button>
-          <button className="border px-5 py-2 bg-blue-900 hover:bg-blue-700 text-white rounded-xl">
-            <Link to="#">Edit</Link>
+          <button className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5   bg-blue-700 hover:bg-blue-600 text-white rounded-md">
+            Edit
           </button>
+          {/* <button className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5    bg-blue-900 hover:bg-blue-700 text-white rounded-xl">
+           Buy
+          </button> */}
         </div>
        ) : (
-        <div className="flex justify-between items-center">
-         <button className="border px-5 py-2 bg-blue-900 hover:bg-blue-700 text-white rounded-xl"> 
-            <Link to="#" onClick={handleAddToCart}>Buy</Link>
+        <div className="flex justify-end items-center gap-x-2">
+         <button 
+          className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5  bg-blue-900 hover:bg-blue-800 text-white rounded-md" 
+          onClick={handleAddToCart}>Buy
           </button>
           
-          <button className="border px-5 py-2 bg-blue-900 hover:bg-blue-700 text-white rounded-xl">
+          <button className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5 bg-blue-900 hover:bg-blue-700 text-white rounded-md">
             <Link to={`/detail/${item._id}`}>View</Link>
           </button>
         </div>

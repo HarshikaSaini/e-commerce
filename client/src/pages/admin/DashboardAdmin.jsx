@@ -6,7 +6,9 @@ import { FaChartLine } from "react-icons/fa6";
 const DashboardAdmin = () => {
   return (
     <div className="flex gap-x-2 w-full overflow-y-hidden h-full">
-      <AdminSidebar />
+      <div className="w-[25%]">
+      <AdminSidebar /> 
+      </div>
       <div className=" h-full flex flex-col w-full overflow-y-auto p-3">
         <main className="w-full h-full  pb-5 flex flex-col bg-blue-50 rounded-md border border-blue-200">
           <h1 className="font-semibold font-serif text-blue-800  px-3 py-4 text-lg">

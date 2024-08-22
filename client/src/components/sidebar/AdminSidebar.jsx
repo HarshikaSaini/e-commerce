@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from "react-router-dom"
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineAddBox } from "react-icons/md";
 import { GrCatalog } from "react-icons/gr";
 import { IoSettingsSharp } from "react-icons/io5";
 import {Divider} from "@mui/material"
+import { IoMdClose } from "react-icons/io";
+import {GlobalState } from "../../GlobalContext"
 const AdminSidebar = () => { 
+  const state = useContext(GlobalState);
+  const toggleSidebar =state.toggleSidebar;
+  
   return (
-    <div className='w-[25%] flex flex-col px-6 py-5 h-auto bg-gray-50 overflow-hidden gap-y-7 overflow-y-auto'>
+    <div className=' w-full flex flex-col px-6 py-5 h-auto bg-gray-50 overflow-hidden gap-y-7 overflow-y-auto'>
+       <div className='lg:hidden'>
+          <button onClick={toggleSidebar}><IoMdClose /></button>
+        </div>
       <div className='w-full text-center hover:bg-blue-600 hover:text-white rounded-xl bg-blue-100 border  border-blue-300 text-blue-600 px-3 py-1 font-semibold text-lg'>
         Admin Panel</div>
     

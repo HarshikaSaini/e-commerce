@@ -116,7 +116,9 @@ const CreateProduct = () => {
 
   return (
     <div className="flex gap-x-2 w-full overflow-y-hidden h-screen">
-      <AdminSidebar />
+      <div className="w-[25%]">
+      <AdminSidebar /> 
+      </div>
       <div className=" h-full flex flex-col w-full  p-3">
         <main className="overflow-y-auto  w-full h-full px-2 py-3 gap-y-6 pb-5 flex flex-col bg-blue-50 rounded-md border border-blue-200">
           <h1 className="font-semibold font-serif tracking-wider text-lg text-blue-600">

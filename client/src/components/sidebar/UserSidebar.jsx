@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserSidebar = () => {
   return (
-    <div>userSidebar</div>
+    <div className='flex'>userSidebar</div>
   )
 }
 

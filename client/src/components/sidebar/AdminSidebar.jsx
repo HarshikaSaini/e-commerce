@@ -13,9 +13,10 @@ const AdminSidebar = () => {
   
   return (
     <div className=' w-full flex flex-col px-6 py-5 h-auto bg-gray-50 overflow-hidden gap-y-7 overflow-y-auto'>
-       <div className='lg:hidden'>
-          <button onClick={toggleSidebar}><IoMdClose /></button>
-        </div>
+          <button 
+          className='ml-auto hover:bg-gray-200 shadow px-1 py-1 rounded-full lg:hidden'
+          onClick={toggleSidebar}><IoMdClose /></button>
+       
       <div className='w-full text-center hover:bg-blue-600 hover:text-white rounded-xl bg-blue-100 border  border-blue-300 text-blue-600 px-3 py-1 font-semibold text-lg'>
         Admin Panel</div>
     

@@ -18,7 +18,9 @@ const Tags = require("../models/tagModel");
 const productCtrl = {
   getProducts: async (req, res) => {
     try {
-      const products = await Products.find();
+      const products = await Products.find()
+        .populate('category',"name")
+        .populate("tags","name")
       res.json(products);
     } catch (error) {
       return res.status(500).json({ msg: error.message });
@@ -50,10 +52,10 @@ const productCtrl = {
       if(parsedTags && Array.isArray(parsedTags)){
         tagIDs = await Promise.all(parsedTags.map(async (tagName)=>{
           let existingTag = await Tags.findOne({name:tagName.toLowerCase()});
-          if(existingTag) return existingTag._id;
+          if(existingTag) return  existingTag._id ;
           const newTag = new Tags({name:tagName.toLowerCase()});
           const savedTag = await newTag.save();
-          return savedTag._id;
+          return existingTag._id ;
         }))
       }
 

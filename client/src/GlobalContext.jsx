@@ -18,7 +18,7 @@ export const DataProvider = ({ children }) => {
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log(showSidebar);
+    
   };
   const brands = [
     "Zara",
@@ -55,7 +55,7 @@ export const DataProvider = ({ children }) => {
 
   const updatedCategory = (category) => setSelectedCategory(category);
   const updatedPrice = (price) => {
-    console.log(price);
+    
     setSelectedPrice(price);
   };
 
@@ -66,6 +66,7 @@ export const DataProvider = ({ children }) => {
         : [...prev, brand]
     );
 
+   
   const state = {
     token: [token, setToken],
     productApi: ProductApi(),

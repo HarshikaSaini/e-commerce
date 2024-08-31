@@ -28,6 +28,8 @@ const productCtrl = {
   },
 
   createProducts: async (req, res) => {
+    
+    
     try {
       const {
         title,
@@ -41,12 +43,12 @@ const productCtrl = {
         category,
       } = req.body;
       
-
+     
       let parsedTags = [];
       if(tags){
         parsedTags = JSON.parse(tags)
       }
-
+      
 
       let tagIDs = [];
       if(parsedTags && Array.isArray(parsedTags)){
@@ -55,14 +57,15 @@ const productCtrl = {
           if(existingTag) return  existingTag._id ;
           const newTag = new Tags({name:tagName.toLowerCase()});
           const savedTag = await newTag.save();
-          return existingTag._id ;
+          
+          return savedTag._id ;
         }))
       }
-
+      
 
 
       const categoryName = await  Category.findOne({name:category});
-      // console.log(categoryName._id)
+     
       if(!categoryName._id) return res.status(400).send("no category found")
     
       const imageFiles = req.files.images;// getting image array
@@ -77,6 +80,9 @@ const productCtrl = {
         original_filename: result.original_filename
       }));
 
+
+    
+      
       const newProduct = new Products({
         title: title.toLowerCase(),
         price,

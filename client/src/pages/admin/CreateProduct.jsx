@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AdminSidebar from "../../components/sidebar/AdminSidebar.jsx";
 import { useForm } from "react-hook-form";
 import { GlobalState } from "../../GlobalContext.jsx";
@@ -8,6 +8,7 @@ import { message, Tag } from "antd";
 
 const CreateProduct = () => {
   const state = useContext(GlobalState);
+  const getProd  = state.productApi.getProducts;
   const [category] = state.categoryApi.category;
   const brandCollection = state.brands;
   const {
@@ -18,11 +19,17 @@ const CreateProduct = () => {
     formState: { errors },
   } = useForm();
 
+  
+  
+
   const [selectedImage, setSelectedImage] = useState([]);
   const [tag, setTags] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const ratings = [1,2,3,4,5]
 
+ 
+ 
+  
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -101,18 +108,22 @@ const CreateProduct = () => {
 
       if (response.status === 200) {
         message.success("Product created successfully!");
+        getProd()
+
       } else {
         message.warning(" Please check the details and try again!");
       }
     } catch (error) {
       console.log(error);
     }
-
     reset();
     setSelectedImage([]);
-    setTags([])
-    setValue("tags",[])
+    setTags([]);
+    setValue("tags",[]);
+    
   };
+
+  
 
   return (
     <div className="flex gap-x-2 w-full overflow-y-hidden h-screen">

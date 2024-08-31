@@ -13,12 +13,12 @@ export const DataProvider = ({ children }) => {
   const [token, setToken] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedPrice, setSelectedPrice] = useState([100,50000]);
+  const [selectedPrice, setSelectedPrice] = useState([100, 50000]);
   const [selectedBrand, setSelectedBrand] = useState([]);
-
+  const [selectedRating, setSelectedRating] = useState(0);
+  const [selectedTag, setSelectedTag] = useState([]);
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
-    
   };
   const brands = [
     "Zara",
@@ -35,10 +35,12 @@ export const DataProvider = ({ children }) => {
     "Dockers",
     "Samsung",
     "Apple",
-    "Sony",
-    "LG",
-    "Panasonic",
+    "OnePlus",
+    "Moto",
+    "Vivo",
     "Dell",
+    "HP",
+    "Lenovo"
   ];
 
   const refreshToken = async () => {
@@ -55,9 +57,18 @@ export const DataProvider = ({ children }) => {
 
   const updatedCategory = (category) => setSelectedCategory(category);
   const updatedPrice = (price) => {
-    
     setSelectedPrice(price);
   };
+
+  const updatedRatings = (rating) => setSelectedRating(rating);
+  
+  const updatedTag = (tag) =>
+    setSelectedTag((prevTag) =>
+      prevTag.includes(tag)
+        ? prevTag.filter((item) => item !== tag)
+        : [...prevTag, tag]
+    );
+    
 
   const updatedBrand = (brand) =>
     setSelectedBrand((prev) =>
@@ -66,7 +77,6 @@ export const DataProvider = ({ children }) => {
         : [...prev, brand]
     );
 
-   
   const state = {
     token: [token, setToken],
     productApi: ProductApi(),
@@ -82,7 +92,13 @@ export const DataProvider = ({ children }) => {
     updatedPrice: updatedPrice,
     selectedBrand: selectedBrand,
     updatedBrand: updatedBrand,
+    selectedRating: selectedRating,
+    updatedRatings: updatedRatings,
+    selectedTag: selectedTag,
+    updatedTag: updatedTag,
   };
 
-  return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;
+  return <GlobalState.Provider value={state}>
+       {children}
+    </GlobalState.Provider>;
 };

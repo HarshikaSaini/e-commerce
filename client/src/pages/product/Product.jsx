@@ -3,7 +3,7 @@ import { GlobalState } from "../../GlobalContext";
 import ProductList from "./ProductList";
 import AdminSidebar from "../../components/sidebar/AdminSidebar";
 import UserSidebar from "../../components/sidebar/UserSidebar";
-import { GrReturn } from "react-icons/gr";
+
 
 const Product = () => {
   const state = useContext(GlobalState);
@@ -13,17 +13,35 @@ const Product = () => {
   const selectedCategory = state.selectedCategory;
   const selectedPrice = state.selectedPrice;
   const selectedBrand = state.selectedBrand;
+  const selectedRating = state.selectedRating;
+  const selectedTag = state.selectedTag;
 
-  console.log(productsList);
+  
+ console.log(productsList);
+ 
+  // const filteredData = productsList.filter((x) => {
+
+  //   const matchesBrand = selectedBrand.length > 0 ? selectedBrand.includes(x.brand) : true;
+  //   const matchesCategory = selectedCategory !== "all" ? selectedCategory === x.category.name : true;
+  //   const matchesPrice = ((selectedPrice <= selectedPrice[0]) && (selectedPrice >= selectedPrice[1])) ?   selectedPrice === x.price : true;
+  //   const matchesRating = selectedRating ? x.ratings === selectedRating : true;
+
+  //   const matchesTag = selectedTag.length > 0 ?  selectedTag.includes(x.tags.name)  : true;
+   
+  //   console.log(matchesBrand,matchesCategory,matchesPrice,matchesRating,matchesTag);
+  //   return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag;
+  // });
+
 
   const filteredData = productsList.filter((x) => {
     const matchesBrand = selectedBrand.length > 0 ? selectedBrand.includes(x.brand) : true;
-    const matchesCategory = selectedCategory !== "all" ? selectedCategory === x.category.name : true;
-    const matchesPrice = selectedPrice >= selectedPrice[0] ?  x.price === selectedPrice : true;
-  
-    return matchesBrand && matchesCategory && matchesPrice;
-  });
+    const matchesCategory = selectedCategory !== 'all' ? selectedCategory === x.category.names : true;
+    const matchesPrice = selectedPrice.length === 2 ? (x.price >= selectedPrice[0] && x.price <= selectedPrice[1]) : true;
+    const matchesRating = selectedRating ? x.ratings === selectedRating : true;
+    const matchesTag = selectedTag.length > 0 ? x.tags.some(tag => selectedTag.includes(tag.name)) : true;
 
+    return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag;
+});
   
 
   return (
@@ -40,16 +58,17 @@ const Product = () => {
 
       <div className=" h-full flex flex-col w-full  p-3">
         <main className="overflow-y-auto  w-full h-full px-2 py-3 gap-y-6 pb-5 flex flex-col bg-blue-50 rounded-md border border-blue-200">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3 p-3">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3 p-3">
             {filteredData.length === 0
-              ? productsList.map((item) => {
+              ? productsList.map((item,index) => {
                   return (
-                    <ProductList key={item._id} item={item} isadmin={isadmin} />
+                    <ProductList key={index} item={item} isadmin={isadmin} />
                   );
-                })
-              : filteredData.map((item) => {
+                }) 
+              :
+              filteredData.map((item,index) => {
                   return (
-                    <ProductList key={item._id} item={item} isadmin={isadmin} />
+                    <ProductList key={index} item={item} isadmin={isadmin} />
                   );
                 })}
           </div>

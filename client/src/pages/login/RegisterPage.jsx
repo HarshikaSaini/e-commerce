@@ -1,21 +1,28 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router-dom"
 import {useForm} from "react-hook-form"
 import Input from '../../components/Input';
 import {message} from "antd"
+import { GlobalState } from '../../GlobalContext';
+
 const RegisterPage = () => {
+
+const state = useContext(GlobalState)
+const setIsLogged = state.userApi.isLogged[1]
+
+
 const {register , handleSubmit , formState:{errors}} = useForm();
 const navigate = useNavigate();
 
 const FormSubmit = async(data) =>{
-   console.log(data)
    try {
      await axios.post("http://localhost:5000/user/register",data);
      localStorage.setItem("firstRegister",true);
+     setIsLogged(true);
      message.success("Regisration Successfull !!")
      navigate("/")
-      
+     
    } catch (err) {
     console.log(err.response.data.msg)
    }

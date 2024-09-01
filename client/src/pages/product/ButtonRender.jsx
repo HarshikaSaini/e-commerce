@@ -20,9 +20,6 @@ const ButtonRender = ({item}) => {
           <button className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5   bg-blue-700 hover:bg-blue-600 text-white rounded-md">
             Edit
           </button>
-          {/* <button className="text-sm sm:text-[15px] md:text-[16px] border px-2 py-1 sm:px-2 md:px-4 lg:px-5    bg-blue-900 hover:bg-blue-700 text-white rounded-xl">
-           Buy
-          </button> */}
         </div>
        ) : (
         <div className="flex justify-end items-center gap-x-2">

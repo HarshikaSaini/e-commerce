@@ -8,12 +8,17 @@ const LoginPage = () => {
   const {register, handleSubmit,formState:{errors}} = useForm()
   
   const userSubmit = async(data) =>{
-  console.log(data)
   try {
-      await axios.post("http://localhost:5000/user/login",data)
-      localStorage.setItem("firstLogin", true);
+    const res =  await axios.post("http://localhost:5000/user/login",data)
+    localStorage.setItem("firstLogin", true);
+    if(res.data.accesstoken){
       message.success("Login Successfull")
       window.location.href="/"
+    }else{
+      console.log("token expired");
+     
+    }
+    
    } catch (err) {
      alert(err.response.data.msg);
    }

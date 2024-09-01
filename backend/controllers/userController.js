@@ -56,10 +56,16 @@ const userCtrl = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path:'/refreshtoken',
+        secure:true,
+         path:"/"
+      });
+      res.cookie("accesstoken", accesstoken, {
+        httpOnly: true,
+        secure:true,
+        path:"/"
       });
 
-      res.json({ msg: "registeration successfull", accesToken: accesstoken });
+      res.status(200).json({ msg: "registeration successfull", accesToken: accesstoken });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -67,11 +73,11 @@ const userCtrl = {
 
   refreshtoken: async (req, res) => {
     try {
-      console.log("cookies recieved", req.cookies);
+      
       const rf_token = req.cookies.refreshtoken;
 
       if (!rf_token)
-        return res.status(400).json({ msg: "please login or register" });
+        return res.status(400).json({ msg: "unauthorized request" });
 
       jwt.verify(rf_token, process.env.REFRESH_TOKEN, (err, user) => {
         if (err)
@@ -102,17 +108,26 @@ const userCtrl = {
         .status(200)
         .cookie("refreshtoken", refreshtoken, {
           httpOnly: true,
-          path: "/",
+          
+           path:"/"
         })
-        .json({ msg: "login successful" , accesstoken:accesstoken});
+        res
+        .status(200)
+        .cookie("accesstoken", accesstoken, {
+          httpOnly: true,
+         
+           path:"/"
+        })
+        .send({ msg: "login successful" , accesstoken:accesstoken});
     } catch (error) {
       return res.status(500).json({ msg: error.message});
     }
   },
 
-  logout: async (req, res) => {
+  logout: (req, res) => {
     try {
-      res.clearCookie("refreshtoken", { path: "/user/refreshtoken" });
+      res.clearCookie("accesstoken", { path: "/" })
+      res.clearCookie("refreshtoken", { path: "/" });
       return res.json({ msg: "logged out" });
     } catch (error) {
       return res.status(500);
@@ -132,7 +147,7 @@ const userCtrl = {
 
 const createAccessToken = (payload) => {
   return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "1d",
+    expiresIn: "1min",
   });
 };
 

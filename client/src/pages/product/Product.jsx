@@ -17,31 +17,29 @@ const Product = () => {
   const selectedTag = state.selectedTag;
 
   
- console.log(productsList);
  
-  // const filteredData = productsList.filter((x) => {
-
-  //   const matchesBrand = selectedBrand.length > 0 ? selectedBrand.includes(x.brand) : true;
-  //   const matchesCategory = selectedCategory !== "all" ? selectedCategory === x.category.name : true;
-  //   const matchesPrice = ((selectedPrice <= selectedPrice[0]) && (selectedPrice >= selectedPrice[1])) ?   selectedPrice === x.price : true;
-  //   const matchesRating = selectedRating ? x.ratings === selectedRating : true;
-
-  //   const matchesTag = selectedTag.length > 0 ?  selectedTag.includes(x.tags.name)  : true;
-   
-  //   console.log(matchesBrand,matchesCategory,matchesPrice,matchesRating,matchesTag);
-  //   return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag;
-  // });
-
-
+ 
   const filteredData = productsList.filter((x) => {
+
     const matchesBrand = selectedBrand.length > 0 ? selectedBrand.includes(x.brand) : true;
-    const matchesCategory = selectedCategory !== 'all' ? selectedCategory === x.category.names : true;
+    const matchesCategory = selectedCategory !== "all" ? selectedCategory === x.category.name : true;
     const matchesPrice = selectedPrice.length === 2 ? (x.price >= selectedPrice[0] && x.price <= selectedPrice[1]) : true;
     const matchesRating = selectedRating ? x.ratings === selectedRating : true;
     const matchesTag = selectedTag.length > 0 ? x.tags.some(tag => selectedTag.includes(tag.name)) : true;
-
+   
     return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag;
-});
+  });
+
+
+//   const filteredData = productsList.filter((x) => {
+//     const matchesBrand = selectedBrand.length > 0 ? selectedBrand.includes(x.brand) : true;
+//     const matchesCategory = selectedCategory !== 'all' ? selectedCategory === x.category.name : true;
+//     const matchesPrice = selectedPrice.length === 2 ? (x.price >= selectedPrice[0] && x.price <= selectedPrice[1]) : true;
+//     const matchesRating = selectedRating ? x.ratings === selectedRating : true;
+//     const matchesTag = selectedTag.length > 0 ? x.tags.some(tag => selectedTag.includes(tag.name)) : true;
+
+//     return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag;
+// });
   
 
   return (

@@ -108,8 +108,7 @@ const CreateProduct = () => {
 
       if (response.status === 200) {
         message.success("Product created successfully!");
-        getProd()
-
+        getProd();
       } else {
         message.warning(" Please check the details and try again!");
       }

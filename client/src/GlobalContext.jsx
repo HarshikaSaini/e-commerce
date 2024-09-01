@@ -13,7 +13,7 @@ export const DataProvider = ({ children }) => {
   const [token, setToken] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedPrice, setSelectedPrice] = useState([100, 50000]);
+  const [selectedPrice, setSelectedPrice] = useState([100, 100000]);
   const [selectedBrand, setSelectedBrand] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0);
   const [selectedTag, setSelectedTag] = useState([]);

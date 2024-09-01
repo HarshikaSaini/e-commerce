@@ -13,7 +13,7 @@ const cookieParser = require("cookie-parser")
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const corsOptions = {
-  origin:["http://localhost:5173"],
+  origin:["https://e-commerce-react-qdr8.onrender.com"],
   credentials:true
 };
 

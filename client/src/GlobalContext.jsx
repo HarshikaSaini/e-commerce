@@ -15,6 +15,7 @@ export const DataProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedPrice, setSelectedPrice] = useState([100, 100000]);
   const [selectedBrand, setSelectedBrand] = useState([]);
+  const [search, setSearch] = useState("") 
   const [selectedRating, setSelectedRating] = useState(0);
   const [selectedTag, setSelectedTag] = useState([]);
   const toggleSidebar = () => {
@@ -77,6 +78,9 @@ export const DataProvider = ({ children }) => {
         : [...prev, brand]
     );
 
+  const searchbarData = (term) => setSearch(term)  
+ 
+ 
   const state = {
     token: [token, setToken],
     productApi: ProductApi(),
@@ -96,6 +100,8 @@ export const DataProvider = ({ children }) => {
     updatedRatings: updatedRatings,
     selectedTag: selectedTag,
     updatedTag: updatedTag,
+    searchbarData:searchbarData,
+    search:search
   };
 
   return <GlobalState.Provider value={state}>

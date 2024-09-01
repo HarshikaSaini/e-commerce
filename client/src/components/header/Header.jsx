@@ -14,6 +14,8 @@ const Header = () => {
   const setIsAdmin = state.userApi.isadmin[1];
   const userData = state.userApi.userData;
   const toggleSidebar = state.toggleSidebar
+  const search = state.search;
+  const searchbarData = state.searchbarData
   const location = useLocation();
   
 
@@ -51,6 +53,8 @@ const Header = () => {
 
         <div className=" hidden sm:w-1/3 sm:flex items-center relative">
           <input
+            value={search}
+            onChange={(e) => searchbarData(e.target.value)}
             placeholder="Search..."
             className="w-full text-gray-500 outline-none bg-white rounded-tl-full rounded-bl-full py-1 px-2  md:py-1 md:px-3 lg:py-2 "
           />

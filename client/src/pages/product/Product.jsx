@@ -15,19 +15,21 @@ const Product = () => {
   const selectedBrand = state.selectedBrand;
   const selectedRating = state.selectedRating;
   const selectedTag = state.selectedTag;
-
+  const search = state.search;
   
  
- 
-  const filteredData = productsList.filter((x) => {
+  
 
+  
+  const filteredData = productsList.filter((x) => { 
     const matchesBrand = selectedBrand.length > 0 ? selectedBrand.includes(x.brand) : true;
     const matchesCategory = selectedCategory !== "all" ? selectedCategory === x.category.name : true;
     const matchesPrice = selectedPrice.length === 2 ? (x.price >= selectedPrice[0] && x.price <= selectedPrice[1]) : true;
     const matchesRating = selectedRating ? x.ratings === selectedRating : true;
     const matchesTag = selectedTag.length > 0 ? x.tags.some(tag => selectedTag.includes(tag.name)) : true;
-   
-    return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag;
+    const searchFilter = x.title.toLowerCase().includes(search.toLowerCase())
+    
+    return matchesBrand && matchesCategory && matchesPrice && matchesRating && matchesTag && searchFilter;
   });
 
 

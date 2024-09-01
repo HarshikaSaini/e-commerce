@@ -45,7 +45,7 @@ export const DataProvider = ({ children }) => {
   ];
 
   const refreshToken = async () => {
-    const res = await axios.get("http://localhost:5000/user/refreshtoken", {
+    const res = await axios.get("https://e-commerce-qpda.onrender.com/user/refreshtoken", {
       withCredentials: true,
     });
     setToken(res.data.accesstoken);

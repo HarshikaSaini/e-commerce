@@ -6,7 +6,7 @@ const tagApi = () => {
 
  const getTags = async() => {
     try {
-        const response = await axios.get("http://localhost:5000/api/tag");
+        const response = await axios.get("https://e-commerce-qpda.onrender.com/api/tag");
         setTags(response.data)
         
     } catch (error) {

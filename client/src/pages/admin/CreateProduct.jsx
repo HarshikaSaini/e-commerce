@@ -97,7 +97,7 @@ const CreateProduct = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/products",
+        "https://e-commerce-qpda.onrender.com/api/products",
         formData,
         {
           headers: {

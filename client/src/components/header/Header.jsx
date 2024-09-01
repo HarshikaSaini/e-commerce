@@ -21,7 +21,7 @@ const Header = () => {
 
 
   const logoutUser = async () => {
-    await axios.get("http://localhost:5000/user/logout");
+    await axios.get("https://e-commerce-qpda.onrender.com/user/logout");
     setIsAdmin(false);
     setIsLogged(false);
     localStorage.clear();

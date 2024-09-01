@@ -9,7 +9,7 @@ const LoginPage = () => {
   
   const userSubmit = async(data) =>{
   try {
-    const res =  await axios.post("http://localhost:5000/user/login",data)
+    const res =  await axios.post("https://e-commerce-qpda.onrender.com/user/login",data)
     localStorage.setItem("firstLogin", true);
     if(res.data.accesstoken){
       message.success("Login Successfull")

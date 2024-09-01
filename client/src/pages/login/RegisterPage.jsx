@@ -17,7 +17,7 @@ const navigate = useNavigate();
 
 const FormSubmit = async(data) =>{
    try {
-     await axios.post("http://localhost:5000/user/register",data);
+     await axios.post("https://e-commerce-qpda.onrender.com/user/register",data);
      localStorage.setItem("firstRegister",true);
      setIsLogged(true);
      message.success("Regisration Successfull !!")

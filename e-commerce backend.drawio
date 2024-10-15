@@ -1,9 +1,169 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="Iyqrh0FltAUZ1cvuJnAb">
-    <mxGraphModel>
+    <mxGraphModel dx="820" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="80" as="targetPoint" />
+            <mxPoint x="160" y="80" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="290" y="80" />
+              <mxPoint x="290" y="80" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-17" value="&lt;span style=&quot;font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;Get - &quot;/products &quot;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sdoA-YoSTDMVvCHm_c7m-7">
+          <mxGeometry x="-0.0414" y="2" relative="1" as="geometry">
+            <mxPoint x="-13" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-4" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Product&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="10" y="50" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-5" value="&lt;pre style=&quot;color: rgb(0, 0, 0); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word; white-space: pre-wrap; font-size: 10px;&quot;&gt;title :       String&lt;br&gt;price :       Number&lt;br&gt;discountPer:  Number&lt;br&gt;ratings:      Number&lt;br&gt;tags:        [String]&lt;br&gt;desc:         String&lt;br&gt;brand:        String&lt;br&gt;sold:         Number&lt;/pre&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=1;align=left;arcSize=49;" vertex="1" parent="1">
+          <mxGeometry x="20" y="170" width="130" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.01;exitY=0.59;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="sdoA-YoSTDMVvCHm_c7m-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="120" as="targetPoint" />
+            <mxPoint x="180" y="120" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-23" value="Post - &quot;/products &quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-25" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;" edge="1" parent="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="160" y="80" as="sourcePoint" />
+            <mxPoint x="480" y="40" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="160" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-26" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;Get - &quot; /products/:id &quot;&lt;/blockquote&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="195" y="10" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-36" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="160" as="sourcePoint" />
+            <mxPoint x="480" y="160" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-39" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="200" as="sourcePoint" />
+            <mxPoint x="480" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-41" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Put - &quot;/products/:id&quot;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;align=left;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="240" y="130" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-42" value="Delete - &quot;/products/:id&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230.5" y="170" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-43" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="200" as="sourcePoint" />
+            <mxPoint x="160" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-44" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;User&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="10" y="300" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="280" as="targetPoint" />
+            <mxPoint x="160.5" y="280.00000000000006" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="290.5" y="280.00000000000006" />
+              <mxPoint x="290.5" y="280.00000000000006" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-46" value="&lt;span style=&quot;font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;Get - &quot;/user/refreshToken &quot;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="sdoA-YoSTDMVvCHm_c7m-45">
+          <mxGeometry x="-0.0414" y="2" relative="1" as="geometry">
+            <mxPoint x="3" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-47" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.01;exitY=0.59;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="360" as="targetPoint" />
+            <mxPoint x="120.5" y="361.00000000000006" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-48" value="Post - &quot;/user/register &quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="226" y="290.00000000000006" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-49" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;" edge="1" parent="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="160.5" y="280.00000000000006" as="sourcePoint" />
+            <mxPoint x="480" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="160.5" y="240.00000000000006" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-50" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160.5" y="320.00000000000006" as="sourcePoint" />
+            <mxPoint x="480" y="320" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-51" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160.5" y="400.00000000000006" as="sourcePoint" />
+            <mxPoint x="480" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-55" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sdoA-YoSTDMVvCHm_c7m-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="341" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-52" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&amp;nbsp; Put - &quot;/user/:id&quot;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;align=left;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230.5" y="330" width="120.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-53" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;Delete - &quot;/user/:id&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="210.5" y="370.00000000000006" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-54" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="480" as="sourcePoint" />
+            <mxPoint x="160.5" y="280.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-56" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="161" y="440" as="sourcePoint" />
+            <mxPoint x="480" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-58" value="Get- &quot;/logout&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="235" y="410" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-59" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="161" y="480" as="sourcePoint" />
+            <mxPoint x="480" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-60" value="Get - &quot;/login&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="240" y="448" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-64" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.917;entryY=0.478;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="77.5" y="458.4159999999998" as="sourcePoint" />
+            <mxPoint x="77.50999999999999" y="458.67999999999995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sdoA-YoSTDMVvCHm_c7m-68" value="&lt;pre style=&quot;overflow-wrap: break-word; text-wrap: wrap;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;fname : String&lt;br/&gt;lname : String&lt;br/&gt;email : String&lt;br/&gt;password: String&lt;br/&gt;role : String&lt;br/&gt;houseNumber : String&lt;br/&gt;city: String&lt;br/&gt;state: String&lt;br/&gt;phone:String&lt;/font&gt;&lt;/pre&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="15" y="420" width="140" height="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
